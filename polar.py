@@ -35,7 +35,7 @@ def polar(theta, r):
     #Draw angular grid
     n_spokes = 4
     angles_spokes = np.linspace(min_angle, max_angle, n_spokes)
-    ray([0, 0, 0], [0, 0, 0], [209, 209, 209],
+    ray(np.zeros(n_spokes-1), np.zeros(n_spokes-1), np.ones(n_spokes-1)*209,
         angles_spokes[1:-1],
         line_color="gray",
         line_width=0.5,
@@ -47,7 +47,7 @@ def polar(theta, r):
 
     text(x_labels, y_labels, ['90', '60', '30', '0'],
          angle=-np.pi/2+angles_spokes,
-         text_font_size="12pt", text_align="center", text_baseline="bottom",
+         text_font_size="11pt", text_align="center", text_baseline="bottom",
          text_color="gray")
 
     # Radial Labels
@@ -58,9 +58,6 @@ def polar(theta, r):
          angle=np.zeros(6),
          text_font_size="9pt", text_align="right", text_baseline="middle",
          text_color="gray")
-    # ray([-0.07], [0], [207], np.pi/2, line_color="gray")
-    # for lab in range(6):
-    #     ray([-0.07], [y_labels[lab]], [7], [0], line_color="gray")
 
     # Final touches
     yaxis().bounds = (0, 0)
